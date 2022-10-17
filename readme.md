@@ -1,0 +1,3 @@
+# DiceJS
+
+RPG dice roller.
