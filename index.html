@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <div class="content center">
+        <h1 id="header">Roll</h1>
+    </div>
+    <div class="content center">
+        <p id="log" style="text-align: center; color: #fff; font-size: 30px;"></p>
+    </div>
+    <div class="content center">
+        <img src="./images/dices.png" alt="" usemap="#dicemap">
+        <map name="dicemap">
+            <area target="" alt="1d4" title="1d4" onclick="rollDice(4)" coords="96,105,67,135,80,175,132,145" shape="poly">
+            <area target="" alt="1d6" title="1d6" onclick="rollDice()" coords="146,119,144,152,163,170,198,160,200,127,179,106" shape="poly">
+            <area target="" alt="1d8" title="1d8" onclick="rollDice(8)" coords="240,107,220,130,220,151,246,169,270,145,270,129" shape="poly">
+            <area target="" alt="1d10" title="1d10" onclick="rollDice(10)" coords="328,105,295,137,325,174,360,141" shape="poly">
+            <area target="" alt="1d12" title="1d12" onclick="rollDice(12)" coords="398,111,376,135,392,166,412,170,438,141,422,113" shape="poly">
+            <area target="" alt="1d20" title="1d20" onclick="rollDice(20)" coords="489,105,462,118,454,150,482,173,513,159,518,130" shape="poly">
+        </map>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
