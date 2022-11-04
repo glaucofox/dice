@@ -22,3 +22,53 @@ body {
     align-items: center;
     justify-content: space-around;
 }
+
+.diceContainer {
+    display: flex;
+    margin: 30px;
+}
+
+.dice {
+    height: 70px;
+    margin: 5px;
+    width: 70px;
+    display: flex;
+    border-radius: 13px;
+    border: 1px dotted gray;
+}
+
+button {
+    background-color: #fcbe24;
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    width: 200px;
+    font-size: 0.5em;
+    border: none;
+    border-radius: 30px;
+}
+
+.scoreSheet thead th {
+    text-align: center;
+    color: greenyellow;
+}
+
+
+.scoreSheet th {
+    text-align: right;
+    padding-right: 10px;
+    color: silver;
+}
+
+.scoreSheet td {
+    text-align: center;
+}
+
+.scoreSheet button {
+    width: 60px;
+}
+
+#ScoreTotal {
+    font-weight: bolder;
+    color: chartreuse;
+}

@@ -11,4 +11,13 @@ export class Dice {
     return result
   }
 
+  rollManyDices(sides, numberOfDices) {
+    let results = Array();
+    for (let i = 0; i < numberOfDices; i++) {
+      results.push(this.roll(sides));
+    }
+    console.log("Roll result: {}", results)
+    return results;
+  }
+
 }
