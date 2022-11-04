@@ -8,36 +8,36 @@
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-    <h3 class="content center" style="color: silver;">Yahtzee!&nbsp;&nbsp;<small><button onclick="rolar()">Roll</button></small></h3>
+    <h3 class="content center" style="color: silver;">Yahtzee!&nbsp;&nbsp;<small><button id="btnRoll" onclick="rolar()">Roll</button></small></h3>
 
     <div class="diceContainer center">
-        <div id="dice1" class="dice center">0</div>
-        <div id="dice2" class="dice center">0</div>
-        <div id="dice3" class="dice center">0</div>
-        <div id="dice4" class="dice center">0</div>
-        <div id="dice5" class="dice center">0</div>
+        <div id="dice1" class="dice center"></div>
+        <div id="dice2" class="dice center"></div>
+        <div id="dice3" class="dice center"></div>
+        <div id="dice4" class="dice center"></div>
+        <div id="dice5" class="dice center"></div>
     </div>
 
     <div class="content center" style="font-size: 0.4em;">
         <table class="scoreSheet">
             <thead>
-                <th style="text-align: right;">Play</th>
-                <th>Score</th>
-                <th>Game</th>
+                <th style="text-align: right;"></th>
+                <th></th>
+                <th></th>
             </thead>
-            <tr><th>Aces</th><td id="ScoreAces">0</td><td><button id="btnScoreAces">Add</button></td></tr>
-            <tr><th>Twos</th><td id="ScoreTwos">0</td><td><button id="btnScoreTwos">Add</button></td></tr>
-            <tr><th>Threes</th><td id="ScoreThrees">0</td><td><button id="btnScoreThrees">Add</button></td></tr>
-            <tr><th>Fours</th><td id="ScoreFours">0</td><td><button id="btnScoreFours">Add</button></td></tr>
-            <tr><th>Fives</th><td id="ScoreFives">0</td><td><button id="btnScoreFives">Add</button></td></tr>
-            <tr><th>Sixes</th><td id="ScoreSixes">0</td><td><button id="btnScoreSixes">Add</button></td></tr>
-            <tr><th>3 of a kind</th><td id="Score3OfAKind">0</td><td><button id="btnScore3OfAKind">Add</button></td></tr>
-            <tr><th>4 of a kind</th><td id="Score4OfAKind">0</td><td><button id="btnScore4OfAKind">Add</button></td></tr>
-            <tr><th>Full House</th><td id="ScoreFullHouse">0</td><td><button id="btnScoreFullHouse">Add</button></td></tr>
-            <tr><th>Small Straight</th><td id="ScoreSmallStraight">0</td><td><button id="btnScoreSmallStraight">Add</button></td></tr>
-            <tr><th>Large Straight</th><td id="ScoreLargeStraight">0</td><td><button id="btnScoreLargeStraight">Add</button></td></tr>
-            <tr><th>YAHTZEE</th><td id="ScoreYahtzee">0</td><td><button id="btnScoreYahtzee">Add</button></td></tr>
-            <tr><th>Chance</th><td id="ScoreChance">0</td><td><button id="btnScoreChance">Add</button></td></tr>
+            <tr><th>Aces</th><td id="ScoreAces">0</td><td><button id="btnScoreAces" onclick="updateValue('ScoreAces', 'btnScoreAces', 1)">Add</button></td></tr>
+            <tr><th>Twos</th><td id="ScoreTwos">0</td><td><button id="btnScoreTwos" onclick="updateValue('ScoreTwos', 'btnScoreTwos', 2)">Add</button></td></tr>
+            <tr><th>Threes</th><td id="ScoreThrees">0</td><td><button id="btnScoreThrees" onclick="updateValue('ScoreThrees', 'btnScoreThrees', 3)">Add</button></td></tr>
+            <tr><th>Fours</th><td id="ScoreFours">0</td><td><button id="btnScoreFours" onclick="updateValue('ScoreFours', 'btnScoreFours', 4)">Add</button></td></tr>
+            <tr><th>Fives</th><td id="ScoreFives">0</td><td><button id="btnScoreFives" onclick="updateValue('ScoreFives', 'btnScoreFives', 5)">Add</button></td></tr>
+            <tr><th>Sixes</th><td id="ScoreSixes">0</td><td><button id="btnScoreSixes" onclick="updateValue('ScoreSixes', 'btnScoreSixes', 6)">Add</button></td></tr>
+            <tr><th>3 of a kind</th><td id="Score3OfAKind">0</td><td><button id="btnScore3OfAKind" onclick="updateValue('Score3OfAKind', 'btnScore3OfAKind', 'threeOfAKind')">Add</button></td></tr>
+            <tr><th>4 of a kind</th><td id="Score4OfAKind">0</td><td><button id="btnScore4OfAKind" onclick="updateValue('Score4OfAKind', 'btnScore4OfAKind', 'fourOfAKind')">Add</button></td></tr>
+            <tr><th>Full House</th><td id="ScoreFullHouse">0</td><td><button id="btnScoreFullHouse" onclick="updateValue('ScoreFullHouse', 'btnScoreFullHouse', 'fullHouse')">Add</button></td></tr>
+            <tr><th>Small Straight</th><td id="ScoreSmallStraight">0</td><td><button id="btnScoreSmallStraight" onclick="updateValue('ScoreSmallStraight', 'btnScoreSmallStraight', 'smallStraight')">Add</button></td></tr>
+            <tr><th>Large Straight</th><td id="ScoreLargeStraight">0</td><td><button id="btnScoreLargeStraight" onclick="updateValue('ScoreLargeStraight', 'btnScoreLargeStraight', 'largeStraight')">Add</button></td></tr>
+            <tr><th>YAHTZEE</th><td id="ScoreYahtzee">0</td><td><button id="btnScoreYahtzee" onclick="updateValue('ScoreYahtzee', 'btnScoreYahtzee', 'yahtzee')">Add</button></td></tr>
+            <tr><th>Chance</th><td id="ScoreChance">0</td><td><button id="btnScoreChance" onclick="updateValue('ScoreChance', 'btnScoreChance', 'chance')">Add</button></td></tr>
             <tr><th>TOTAL</th><td id="ScoreTotal">0</td><td></td></tr>
         </table>
     </div>
@@ -48,73 +48,6 @@
         window.yahtzee = new Yahtzee()
         window.game = new YahtzeeGame()
     </script>
-    <script>
-    function rolar() {
-        yahtzee.roll();
-        updateDices(yahtzee.rollResult)
-    }
-
-    function updateDices(result) {
-        document.querySelector('#dice1').innerHTML = result[0];
-        document.querySelector('#dice2').innerHTML = result[1];
-        document.querySelector('#dice3').innerHTML = result[2];
-        document.querySelector('#dice4').innerHTML = result[3];
-        document.querySelector('#dice5').innerHTML = result[4];
-    }
-
-    // document.getElementById('#btnScoreAces').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 1)
-        
-    // })
-    // document.getElementById('#btnScoreTwos').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 2)
-    // })
-    // document.getElementById('#btnScoreThrees').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 3)
-    // })
-    // document.getElementById('#btnScoreFours').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 4)
-    // })
-    // document.getElementById('#btnScoreFives').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 5)
-    // })
-    // document.getElementById('#btnScoreSixes').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 6)
-    // })
-    // document.getElementById('#btnScore3OfAKind').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'three-of-a-kind')
-    // })
-    // document.getElementById('#btnScore4OfAKind').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'four-of-a-kind')
-    // })
-    // document.getElementById('#btnScoreFullHouse').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'full-house')
-    // })
-    // document.getElementById('#btnScoreSmallStraight').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'small-straight')
-    // })
-    // document.getElementById('#btnScoreLargeStraight').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'large-straight')
-    // })
-    // document.getElementById('#btnScoreYahtzee').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'yahtzee')
-    // })
-    // document.getElementById('#btnScoreChance').addEventListener('click', function(e){
-    //     e.target.disable = true
-    //     game.addScore(yahtzee.possibleMoves, 'chance')
-    // })
-    </script>
+    <script src="scripts/gameInterface.js"></script>
 </body>
 </html>
