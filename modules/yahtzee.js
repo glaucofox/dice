@@ -20,13 +20,13 @@ export class Yahtzee {
 
   checkPossibleMoves(consolidated) {
     let results = consolidated
-    results["three-of-a-kind"] = this.checkTriple(consolidated)
-    results["four-of-a-kind"] = this.checkQuadruple(consolidated)
-    results["full-house"] = this.checkFullHouse(consolidated)
-    results["small-straight"] = this.checkSmallStraight(consolidated)
-    results["large-straight"] = this.checkLargeStraight(consolidated)
+    results["threeOfAKind"] = this.checkTriple(consolidated)
+    results["fourOfAKind"] = this.checkQuadruple(consolidated)
+    results["fullHouse"] = this.checkFullHouse(consolidated)
+    results["smallStraight"] = this.checkSmallStraight(consolidated)
+    results["largeStraight"] = this.checkLargeStraight(consolidated)
     results["yahtzee"] = this.checkYahtzee(consolidated, 5)
-    results["total"] = this.sumDiceResults(consolidated)
+    results["chance"] = this.sumDiceResults(consolidated)
 
     return results
   }

@@ -15,6 +15,7 @@ export class YahtzeeCard {
     this.yahtzee = 0;
     this.chance = 0;
     this.bonus = 0;
+    this.total = 0;
   }
 
 }
