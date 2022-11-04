@@ -48,22 +48,29 @@ function updateDices(result) {
   enableScoreButtons()
 }
 
-function updateValue(text, btn, param) {
-  game.addScore(yahtzee.possibleMoves, param)
-  console.log(game.card)
+function updateValue(text, param) {
   let btnId = '#'+text
-  document.querySelector(btnId).innerHTML = game.card[param]
-  document.querySelector('#ScoreTotal').innerHTML = game.card.total
-  button = document.querySelector('#'+btn)
-  btnRoll = document.querySelector('#btnRoll')
+
+  game.addScore(yahtzee.possibleMoves, param)
+  updateScoreCard(btnId, param)
   disableScoreButtons()
   removeClickedButtonFromEnableList('#btn'+text)
+  enableRollButton()
+}
+
+function enableRollButton() {
+  btnRoll = document.querySelector('#btnRoll')
   if (window.scoreButtonsControl.length <= 0) {
     btnRoll.innerHTML = "Reset"
     btnRoll.addEventListener("click", reset);
   }
   enableElement(btnRoll)
+}
 
+function updateScoreCard(btnId, param) {
+  console.log(game.card)
+  document.querySelector(btnId).innerHTML = game.card[param]
+  document.querySelector('#ScoreTotal').innerHTML = game.card.total
 }
 
 function disableElement(elem) {
