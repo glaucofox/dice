@@ -1,3 +1,37 @@
+window.scoreButtonsControl = Array()
+
+initTurn()
+
+
+function initTurn() {
+  scoreButtonsControl = ['#btnScoreAces', '#btnScoreTwos', '#btnScoreThrees', 
+                              '#btnScoreFours', '#btnScoreFives', '#btnScoreSixes', 
+                              '#btnScore3OfAKind', '#btnScore4OfAKind', '#btnScoreFullHouse', 
+                              '#btnScoreSmallStraight', '#btnScoreLargeStraight', '#btnScoreYahtzee', 
+                              '#btnScoreChance']
+  btnRoll = document.querySelector('#btnRoll')
+  disableScoreButtons()
+  enableElement(btnRoll)
+}
+
+function reset() {
+  location.reload()
+}
+
+function disableScoreButtons() {
+  window.scoreButtonsControl.forEach((e) => {
+    button = document.querySelector(e)
+    disableElement(button)
+  })
+}
+
+function enableScoreButtons() {
+  window.scoreButtonsControl.forEach((e) => {
+    button = document.querySelector(e)
+    enableElement(button)
+  })
+}
+
 function rolar() {
   yahtzee.roll()
   btnRoll = document.querySelector('#btnRoll')
@@ -11,17 +45,25 @@ function updateDices(result) {
   document.querySelector('#dice3').innerHTML = result[2];
   document.querySelector('#dice4').innerHTML = result[3];
   document.querySelector('#dice5').innerHTML = result[4];
+  enableScoreButtons()
 }
 
 function updateValue(text, btn, param) {
   game.addScore(yahtzee.possibleMoves, param)
   console.log(game.card)
-  document.querySelector('#'+text).innerHTML = game.card[param]
+  let btnId = '#'+text
+  document.querySelector(btnId).innerHTML = game.card[param]
   document.querySelector('#ScoreTotal').innerHTML = game.card.total
   button = document.querySelector('#'+btn)
   btnRoll = document.querySelector('#btnRoll')
-  disableElement(button)
+  disableScoreButtons()
+  removeClickedButtonFromEnableList('#btn'+text)
+  if (window.scoreButtonsControl.length <= 0) {
+    btnRoll.innerHTML = "Reset"
+    btnRoll.addEventListener("click", reset);
+  }
   enableElement(btnRoll)
+
 }
 
 function disableElement(elem) {
@@ -32,4 +74,12 @@ function disableElement(elem) {
 function enableElement(elem) {
   elem.disabled = false
   elem.classList.remove("disabled")
+}
+
+function removeClickedButtonFromEnableList(btnOutside) {
+  let result = window.scoreButtonsControl.filter((e) => {
+    return e !== btnOutside
+  })
+  console.log(result)
+  window.scoreButtonsControl = result
 }
